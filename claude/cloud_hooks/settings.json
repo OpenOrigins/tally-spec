@@ -1,0 +1,219 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/tally_session_start.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://api.prod.openorigins.com/v1/tally/logs",
+            "headers": {
+              "x-api-key": "$OO_API_KEY"
+            },
+            "timeout": 10,
+            "allowedEnvVars": [
+              "OO_API_KEY"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
