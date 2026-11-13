@@ -7,9 +7,13 @@ Public specification, Homebrew cask and standalone Claude Code cloud hooks for
 - [Cloud hook setup](claude/cloud_hooks/cloud_hook_installation.md) — the separate
   HTTP-hook option for supported Claude Code cloud sessions.
 - [OpenOrigins dashboard](https://dashboard.openorigins.com/) — create an account,
-  generate an Agent API key and download the native installer for your platform.
+  generate an Agent API key and download the Tally desktop app.
 
 ## Downloads
+
+Install the **Tally desktop app**. It includes the hooks and sets them up for
+Claude Code, Codex and Cursor; there's nothing else to install. Linux has no
+desktop app yet and uses the integration installer below.
 
 Tally 0.1.21 is available for macOS and Linux. Windows remains on its previous release.
 Generate an Agent API key in the dashboard before connecting your agents.
@@ -33,22 +37,19 @@ Linux uses the integration installer: run `chmod +x tally-linux-x86_64`, then
 `./tally-linux-x86_64`. Install the downloaded wheel with
 `python -m pip install ~/Downloads/tally_langgraph-0.1.3-py3-none-any.whl`.
 
-### Separate integration installers
+App and hook updates are offered in the desktop app's Settings on macOS. Windows
+in-app updates are not yet available.
 
-The [macOS Apple Silicon](https://cdn.openorigins.com/releases/v0.1.21/tally-macos-arm64.dmg),
-[macOS Intel](https://cdn.openorigins.com/releases/v0.1.21/tally-macos-x86_64.dmg) and
-[Windows EXE](https://cdn.openorigins.com/releases/v0.1.19/tally-windows-x86_64.exe)
-installers remain available for installing hooks without the resident app.
-Homebrew below installs this separate integration installer; use the desktop
-DMG above for the resident app. macOS app updates and hook updates are offered
-separately in desktop Settings. Windows in-app updates are not yet available.
-
-After installing the native hooks, restart the selected client. Codex users
+After connecting your agents, restart the selected client. Codex users
 must install Codex CLI first, review the OpenOrigins Tally hooks in the CLI and
 trust them before reopening Codex Desktop. See the public
 [setup guide](https://openorigins.gitbook.io/v1/tally/setup#step-6-connect-your-client).
 
 ## Homebrew on macOS
+
+Homebrew installs the Tally desktop app from the next desktop release. Until
+then, the cask still installs the separate 0.1.21 integration installer; use the
+desktop DMG above instead.
 
 ```sh
 brew tap openorigins/tally https://github.com/OpenOrigins/tally-spec
@@ -56,9 +57,10 @@ brew install --cask openorigins/tally/tally
 ```
 
 The cask records the release version and separate SHA-256 checksums for Apple
-Silicon and Intel installers. Updates are published only after verifying the
-release files. Run `brew update` and `brew upgrade --cask openorigins/tally/tally`
-to update an installation.
+Silicon and Intel. Updates are published only after verifying the release
+files. Run `brew update` and `brew upgrade --cask openorigins/tally/tally` to
+update an installation. That upgrade replaces the integration installer with
+the desktop app once the cask moves to it.
 
 If you already tapped the old Tally source repository, replace the tap checkout.
 This keeps the installed app; save any local edits to the old tap first.
@@ -93,7 +95,7 @@ in deployments. Undelivered records stay in its local SQLite outbox for retry.
 The files under `claude/cloud_hooks/` are a separate integration for
 single-repository cloud sessions outside Claude Projects. Follow their setup
 guide before enabling them. The direct HTTP option does not report token counts
-or keep a local delivery queue; use the native installer for local token capture.
+or keep a local delivery queue; use the desktop app for local token capture.
 
 `settings.local.json` is an empty template. Keep API keys outside version control.
 
